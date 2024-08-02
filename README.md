@@ -115,7 +115,8 @@ df.head()
 Display the data types of each column using the function dtypes.
 
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **df.dtypes**
 
 We use the method describe to obtain a statistical summary of the dataframe.
@@ -131,7 +132,8 @@ We use the method describe to obtain a statistical summary of the dataframe.
 Drop the columns <code>"id"</code>  and <code>"Unnamed: 0"</code> from axis 1 using the method <code>drop()</code>, then use the method <code>describe()</code> to obtain a statistical summary of the data. Make sure the <code>inplace</code> parameter is set to <code>True</code>.  
 
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **df.drop(['id' , 'Unnamed: 0'], axis=1, inplace = True)
 df.describe()**
 
@@ -165,7 +167,7 @@ print("number of NaN values for the column bathrooms :", df['bathrooms'].isnull(
 Use the method <code>value_counts</code> to count the number of houses with unique floor values, use the method <code>.to_frame()</code> to convert it to a data frame.
 
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
 
 **df['floors'].value_counts().to_frame()**
 
@@ -180,7 +182,8 @@ Use the function <code>boxplot</code> in the seaborn library  to  determine whet
 Use the function <code>regplot</code>  in the seaborn library  to  determine if the feature <code>sqft_above</code> is negatively or positively correlated with price.
 
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **sns.regplot(x= df['sqft_above'], y= df['price'])**
 
 We can use the Pandas method <code>corr()</code>  to find the feature other than price that is most correlated with price.
@@ -204,7 +207,8 @@ lm.score(X, Y)
 
 Fit a linear regression model to predict the <code>'price'</code> using the feature <code>'sqft_living'</code> then calculate the R^2.
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **x = df[['sqft_living']]
 y = df['price']
 lm = LinearRegression()
@@ -221,7 +225,8 @@ features =["floors", "waterfront","lat" ,"bedrooms" ,"sqft_basement" ,"view" ,"b
 Then calculate the R^2.
 
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **lm = LinearRegression()
 lm.fit(df[features],y)
 lm.score(df[features], y)**
@@ -252,7 +257,8 @@ Input=[('scale',StandardScaler()),('polynomial', PolynomialFeatures(include_bias
 Use the list to create a pipeline object to predict the 'price', fit the object using the features in the list <code>features</code>, and calculate the R^2.
 
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **pipe = Pipeline(Input)
 pipe.fit(df[features],y)
 pipe.score(df[features],y)**
@@ -286,7 +292,8 @@ Create and fit a Ridge regression object using the training data, set the regula
 
 from sklearn.linear_model import Ridge
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **RidgModel = Ridge(alpha=0.1)
 RidgModel.fit(x_train, y_train)
 RidgModel.score(x_test, y_test)**
@@ -295,7 +302,8 @@ RidgModel.score(x_test, y_test)**
 
 Perform a second order polynomial transform on both the training data and testing data. Create and fit a Ridge regression object using the training data, set the regularisation parameter to 0.1, and calculate the R^2 utilising the test data provided.
 
-#Enter Your Code, Execute and take the Screenshot
+#Enter Your Code
+
 **pr = PolynomialFeatures(degree = 2)
 x_train_pr = pr.fit_transform(x_train)
 x_test_pr = pr.fit_transform(x_test)**
