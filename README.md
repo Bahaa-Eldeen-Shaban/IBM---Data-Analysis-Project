@@ -166,6 +166,7 @@ Use the method <code>value_counts</code> to count the number of houses with uniq
 
 
 #Enter Your Code, Execute and take the Screenshot
+
 **df['floors'].value_counts().to_frame()**
 
 ### Question 4
