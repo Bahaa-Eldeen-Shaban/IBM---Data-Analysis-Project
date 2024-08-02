@@ -116,12 +116,12 @@ Display the data types of each column using the function dtypes.
 
 
 #Enter Your Code, Execute and take the Screenshot
-df.dtypes
+**df.dtypes**
 
 We use the method describe to obtain a statistical summary of the dataframe.
 
 
-df.describe()
+**df.describe()**
 
 # Module 2: Data Wrangling
 
@@ -132,8 +132,8 @@ Drop the columns <code>"id"</code>  and <code>"Unnamed: 0"</code> from axis 1 us
 
 
 #Enter Your Code, Execute and take the Screenshot
-df.drop(['id' , 'Unnamed: 0'], axis=1, inplace = True)
-df.describe()
+**df.drop(['id' , 'Unnamed: 0'], axis=1, inplace = True)
+df.describe()**
 
 We can see we have missing values for the columns <code> bedrooms</code>  and <code> bathrooms </code>
 
@@ -166,13 +166,13 @@ Use the method <code>value_counts</code> to count the number of houses with uniq
 
 
 #Enter Your Code, Execute and take the Screenshot
-df['floors'].value_counts().to_frame()
+**df['floors'].value_counts().to_frame()**
 
 ### Question 4
 
 Use the function <code>boxplot</code> in the seaborn library  to  determine whether houses with a waterfront view or without a waterfront view have more price outliers.
 
-sns.boxplot(x= df['waterfront'], y= df['price'])
+**sns.boxplot(x= df['waterfront'], y= df['price'])**
 
 ### Question 5
 
@@ -180,7 +180,7 @@ Use the function <code>regplot</code>  in the seaborn library  to  determine if 
 
 
 #Enter Your Code, Execute and take the Screenshot
-sns.regplot(x= df['sqft_above'], y= df['price'])
+**sns.regplot(x= df['sqft_above'], y= df['price'])**
 
 We can use the Pandas method <code>corr()</code>  to find the feature other than price that is most correlated with price.
 
@@ -204,11 +204,11 @@ lm.score(X, Y)
 Fit a linear regression model to predict the <code>'price'</code> using the feature <code>'sqft_living'</code> then calculate the R^2.
 
 #Enter Your Code, Execute and take the Screenshot
-x = df[['sqft_living']]
+**x = df[['sqft_living']]
 y = df['price']
 lm = LinearRegression()
 lm.fit(x,y)
-lm.score(x, y)
+lm.score(x, y)**
 
 ### Question 7
 
@@ -221,9 +221,9 @@ Then calculate the R^2.
 
 
 #Enter Your Code, Execute and take the Screenshot
-lm = LinearRegression()
+**lm = LinearRegression()
 lm.fit(df[features],y)
-lm.score(df[features], y)
+lm.score(df[features], y)**
 
 ### This will help with Question 8
 
@@ -252,9 +252,9 @@ Use the list to create a pipeline object to predict the 'price', fit the object 
 
 
 #Enter Your Code, Execute and take the Screenshot
-pipe = Pipeline(Input)
+**pipe = Pipeline(Input)
 pipe.fit(df[features],y)
-pipe.score(df[features],y)
+pipe.score(df[features],y)**
 
 # Module 5: Model Evaluation and Refinement
 
@@ -286,19 +286,19 @@ Create and fit a Ridge regression object using the training data, set the regula
 from sklearn.linear_model import Ridge
 
 #Enter Your Code, Execute and take the Screenshot
-RidgModel = Ridge(alpha=0.1)
+**RidgModel = Ridge(alpha=0.1)
 RidgModel.fit(x_train, y_train)
-RidgModel.score(x_test, y_test)
+RidgModel.score(x_test, y_test)**
 
 ### Question 10
 
 Perform a second order polynomial transform on both the training data and testing data. Create and fit a Ridge regression object using the training data, set the regularisation parameter to 0.1, and calculate the R^2 utilising the test data provided.
 
 #Enter Your Code, Execute and take the Screenshot
-pr = PolynomialFeatures(degree = 2)
+**pr = PolynomialFeatures(degree = 2)
 x_train_pr = pr.fit_transform(x_train)
-x_test_pr = pr.fit_transform(x_test)
+x_test_pr = pr.fit_transform(x_test)**
 
-RidgModel = Ridge(alpha=0.1)
+**RidgModel = Ridge(alpha=0.1)
 RidgModel.fit(x_train, y_train)
-RidgModel.score(x_test, y_test)
+RidgModel.score(x_test, y_test)**
